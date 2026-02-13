@@ -184,7 +184,7 @@ export default function BrandAnimation() {
             {images.map((img, index) => (
               <div 
                 key={index} 
-                className="group relative w-24 h-36 lg:w-32 lg:h-48 bg-neutral-100 rounded-2xl overflow-hidden  shadow-2xl transition-transform hover:scale-105"
+                className="group relative w-24 h-36 lg:w-32 lg:h-48 rounded-2xl overflow-hidden  shadow-2xl transition-transform hover:scale-105"
               >
                 <img
                   src={img}
