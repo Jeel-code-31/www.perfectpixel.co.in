@@ -15,30 +15,25 @@ export default function BrandAnimation() {
   const brainRef = useRef(null)
   const beamRef = useRef(null)
   const retailExpRef = useRef(null)
-  const boxRef = useRef(null)
+  const boxRef = useRef(null) // Container for the side-by-side images
   const questionRef = useRef(null)
   const [paths, setPaths] = useState([])
 
-  // UseCallback to prevent recreation on every render
   const updatePaths = useCallback(() => {
     if (!containerRef.current || !brandImageRef.current || inputsRef.current.length === 0) return;
 
     const containerRect = containerRef.current.getBoundingClientRect();
     const targetRect = brandImageRef.current.getBoundingClientRect();
 
-    // Target: Center-left of the Brand Image bar
     const targetX = targetRect.left - containerRect.left;
     const targetY = targetRect.top - containerRect.top + targetRect.height / 2;
 
     const newPaths = inputsRef.current.map((input) => {
       if (!input) return "";
       const rect = input.getBoundingClientRect();
-
-      // Start: Center-right of the input button
       const startX = rect.right - containerRect.left;
       const startY = rect.top - containerRect.top + rect.height / 2;
 
-      // Smooth Bezier Curve logic
       return `M ${startX} ${startY} C ${startX + 100} ${startY}, ${targetX - 100} ${targetY}, ${targetX} ${targetY}`;
     });
 
@@ -46,7 +41,6 @@ export default function BrandAnimation() {
   }, []);
 
   useEffect(() => {
-    // Initial calculation after small delay to ensure DOM is settled
     const timer = setTimeout(updatePaths, 100);
     window.addEventListener("resize", updatePaths);
 
@@ -81,11 +75,24 @@ export default function BrandAnimation() {
           { scaleX: 0, opacity: 0 },
           { scaleX: 1, opacity: 1, duration: 1, transformOrigin: "left", ease: "power4.inOut" }
         )
-        .fromTo([retailExpRef.current, questionRef.current, boxRef.current],
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.5"
+        // Animates the Question text first
+        .fromTo(questionRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6 }, "-=0.5"
+        )
+        // Animates the Retail Experience text
+        .fromTo(retailExpRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.6 }, "-=0.4"
+        )
+        // Corrected: Animates the children (the images) of the boxRef side-by-side
+        .fromTo(boxRef.current.children,
+          { opacity: 0, y: 30, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.15, ease: "back.out(1.2)" },
+          "-=0.3"
         );
     }, containerRef);
+
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", updatePaths);
@@ -100,15 +107,11 @@ export default function BrandAnimation() {
     { label: "P.R.", color: "#d946ef", bg: "bg-fuchsia-600" }
   ];
 
-  const images = [
-    "/Mota1.png",
-    "/Mota2.png",
-    "/Mota3.png",
-  ];
+  const images = ["/Mota1.png", "/Mota2.png", "/Mota3.png"];
 
   return (
     <div ref={containerRef} className="relative w-full min-h-screen bg-[#0a0a0a] flex items-center justify-center overflow-hidden p-8 md:p-16">
-
+      
       {/* SVG LAYER */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <defs>
@@ -157,7 +160,7 @@ export default function BrandAnimation() {
 
           <div className="relative flex items-center">
             <div ref={brainRef} className="z-30 -ml-6">
-              <div className="w-24 h-24 lg:w-36 lg:h-36 bg-gradient-to-br  rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(234,179,8,0.3)] border-4 border-neutral-900">
+              <div className="w-24 h-24 lg:w-36 lg:h-36 bg-neutral-900 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(234,179,8,0.3)] border-4 border-neutral-800">
                 <span className="text-5xl lg:text-7xl">🧠</span>
               </div>
             </div>
@@ -172,25 +175,30 @@ export default function BrandAnimation() {
           </div>
         </div>
 
-        {/* 3. PACKAGE & QUESTION */}
-        <div className="flex flex-col items-end ">
-          <h2 ref={questionRef} className="text-3xl lg:text-4xl text-neutral-100 font-extralight text-right leading-tight max-w-sm font-sans tracking-tight">
-            Does the <span className="font-black text-white italic underline decoration-orange-500 underline-offset-8">PACKAGE DESIGN</span> <br />
-            live up to the <span className="font-bold">BRAND IMAGE?</span>
-          </h2>
 
-          <div className="flex flex-wrap">
+          {/* Side-by-side Images container */}
+          <div 
+            ref={boxRef} 
+            className="flex flex-row flex-wrap items-center justify-center lg:justify-end gap-4 w-full"
+          >
             {images.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Description ${index + 1}`}
-                className="w-full h-[200px] object-contain rounded"
-              />
+              <div 
+                key={index} 
+                className="group relative w-24 h-36 lg:w-32 lg:h-48 bg-neutral-100 rounded-2xl overflow-hidden  shadow-2xl transition-transform hover:scale-105"
+              >
+                <img
+                  src={img}
+                  alt={`Package Design ${index + 1}`}
+                  className="w-full h-full object-contain p-2" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              </div>
             ))}
           </div>
+          
         </div>
+
       </div>
-    </div>
+      
   )
 }
