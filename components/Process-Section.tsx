@@ -8,28 +8,28 @@ const steps = [
     number: '01',
     title: 'Research & Discovery',
     description: 'We dive deep into understanding your brand, market, and audience to lay a solid foundation.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop',
+    image: '/process/research.png', 
     details: 'Our research phase involves comprehensive market analysis, competitive landscape review, and audience insights to build a strong strategic foundation.'
   },
   {
     number: '02',
     title: 'Strategy & Planning',
     description: 'Our team develops a comprehensive strategy and creates detailed plans for execution.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop',
+    image: '/process/review.jpg', 
     details: 'We create detailed roadmaps, define objectives, and establish KPIs to ensure project success and alignment with your business goals.'
   },
   {
     number: '03',
     title: 'Design & Development',
     description: 'We bring ideas to life with cutting-edge design and robust development practices.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop',
+    image: '/process/draft.jpg', 
     details: 'Our creative team crafts stunning visuals and our developers build scalable, performant solutions using the latest technologies.'
   },
-  {
+  { 
     number: '04',
     title: 'Testing & Launch',
     description: 'Rigorous testing ensures quality, followed by a seamless launch and deployment.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14819c9cb6e1?w=500&h=500&fit=crop',
+    image: '/process/testing.png', 
     details: 'We conduct comprehensive testing, optimize performance, and manage the launch to ensure smooth deployment and user experience.'
   }
 ];

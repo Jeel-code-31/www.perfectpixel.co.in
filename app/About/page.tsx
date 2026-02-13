@@ -65,7 +65,7 @@ export default function AboutPage() {
                         <div className="max-w-4xl animate-slideInDown">
                             {/* Decorative Label */}
                             <span className="text-[#AC9148] text-xs uppercase tracking-[0.4em] font-bold mb-4 block">
-                                EST In. 2019
+                                EST In. 2023
                             </span>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-balance leading-[1.1] mb-8 text-[#FAF7F2]">
@@ -77,8 +77,8 @@ export default function AboutPage() {
 
                             <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed font-light">
                                 We are a creative collective dedicated to transforming ideas into
-                                stunning digital experiences. With over <span className="text-white font-medium">8 years</span> of expertise,
-                                we&apos;ve helped over <span className="text-white font-medium">80+ Clients</span> elevate their presence.
+                                stunning digital experiences. With over <span className="text-white font-medium">4 years</span> of expertise,
+                                we&apos;ve helped over <span className="text-white font-medium">20+ Clients</span> elevate their presence.
                             </p>
                         </div>
                     </div>
@@ -205,11 +205,11 @@ export default function AboutPage() {
                         {/* Team members grid - 2 columns on tablet, 4 on desktop */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[
-                                { name: 'Sarah Johnson', role: 'CEO & Founder', contact: 'hello@gmail.com' },
-                                { name: 'Mike Chen', role: 'Co-Founder', contact: 'mike@gmail.com' },
-                                { name: 'Emma Rodriguez', role: 'Graphic Designer', contact: 'emma@gmail.com' },
-                                { name: 'Alex Thompson', role: 'Content Writer', contact: 'alex@gmail.com' },
-                                { name: 'Alexa', role: 'Website Designer & Developer', contact: 'alexa@gmail.com' },
+                                { name: 'Prawin Mw', role: 'CEO & Founder', contact: 'pravin@perfectpixel.co.in', Image: 'web3.jpg' },
+                                { name: 'Jahan Patel', role: 'Digital Marketing Specialist', contact: 'jahandms60@gmail.com', Image:''},
+                                { name: 'Abhay Hippakra', role: 'Graphic Designer', contact: 'abhay357015@gmail.com' ,Image:''},
+                                { name: 'Harsh Makwana', role: 'Content Writer', contact: 'alex@gmail.com', Image:''},
+                                { name: 'Jeel Darji', role: 'Website Designer & Developer', contact: 'darjijeel31@gmail.com',Image:'' },
                             ].map((member, index) => (
                                 <div
                                     key={index}
@@ -220,18 +220,22 @@ export default function AboutPage() {
                                 >
                                     <div className="relative rounded-2xl overflow-hidden bg-card border border-muted group-hover:border-white transition-all duration-300">
                                         {/* Placeholder for team member image */}
-                                        <div className="w-full h-64  flex items-center justify-center group-hover:from-[#AC9148]/30 group-hover:to-accent/10 transition-all duration-300">
-                                            <Users className="w-16 h-16 text-white/50 group-hover:text-[#AC9148] transition-colors duration-300 group-hover:scale-110" />
+                                        <div className="w-full h-70 flex items-center justify-center group-hover:from-[#AC9148]/30 group-hover:to-accent/10 transition-all duration-300">
+                                            <img src={member.Image} className="w-full h-full object-cover text-white/50 group-hover:text-[#AC9148] transition-colors duration-300 group-hover:scale-110" />
                                         </div>
-
                                         {/* Team member info */}
                                         <div className="p-6">
-                                            <h3 className="text-lg font-bold mt-1 transition-colors duration-300">
+                                            <h3 className="text-lg font-bold mt-1 transition-colors duration-300 mt-5">
                                                 {member.name}
                                             </h3>
+
                                             <p className="text-foreground/60 group-hover:text-[#AC9148] text-sm mb-4 mt-4">{member.role}</p>
-                                            <a href={`mailto:${member.contact}`} 
-                                            className='text-foreground/60 group-hover:text-[#AC9148] text-sm mb-2 mt-1'>{member.contact}</a>
+                                            <div className="flex items-center gap-3 my-4 mt-6">
+                                                <span className="text-[10px] uppercase tracking-widest text-foreground/40 font-bold">Contact</span>
+                                                <div className="h-[1px] flex-1 bg-[#AC9148]/20 group-hover:bg-[#AC9148]/50 transition-colors duration-300" />
+                                            </div>
+                                             <a href={`mailto:${member.contact}`}
+                                                className='text-foreground/60 group-hover:text-[#AC9148] text-sm mb-2 mt-1'>{member.contact}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -288,9 +292,9 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
-      
-                    <ExpertiseSection />
-               
+
+                <ExpertiseSection />
+
 
                 {/* ========== CTA SECTION ========== */}
                 {/* Final call-to-action encouraging collaboration */}

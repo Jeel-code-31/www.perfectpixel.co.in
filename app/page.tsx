@@ -14,7 +14,6 @@ import ReviewSection from '@/components/section';
 import BrandAnimation from '@/components/Client';
 
 
-
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
 
@@ -91,8 +90,6 @@ export default function Home() {
             </a>
           </div>
         </section>
-
-
         <Footer />
       </ScrollAnimator>
     </main>

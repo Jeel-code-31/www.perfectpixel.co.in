@@ -86,7 +86,6 @@ export default function BrandAnimation() {
           { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.5"
         );
     }, containerRef);
-
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", updatePaths);
@@ -99,6 +98,12 @@ export default function BrandAnimation() {
     { label: "PROMOTIONS", color: "#fbbf24", bg: "bg-amber-500" },
     { label: "INTERNET", color: "#38bdf8", bg: "bg-sky-500" },
     { label: "P.R.", color: "#d946ef", bg: "bg-fuchsia-600" }
+  ];
+
+  const images = [
+    "/Mota1.png",
+    "/Mota2.png",
+    "/Mota3.png",
   ];
 
   return (
@@ -174,12 +179,15 @@ export default function BrandAnimation() {
             live up to the <span className="font-bold">BRAND IMAGE?</span>
           </h2>
 
-          <div ref={boxRef} className="relative w-48 h-auto lg:w-64 lg:h-80 bg-neutral-100 rounded shadow-[30px_30px_60px_rgba(0,0,0,0.5)] flex flex-col items-center justify-between p-10 border-r-[12px] border-b-[12px] border-neutral-300">
-            <img
-              src="/pack2.jpg"
-              alt="Description"
-              className="w-full h-650 object-contain rounded"
-            />
+          <div className="flex flex-wrap">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Description ${index + 1}`}
+                className="w-full h-[200px] object-contain rounded"
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -133,7 +133,7 @@ export default function ClientsPage() {
             {/* Selected Work Grid */}
             <section className="py-32 px-6 max-w-7xl mx-auto space-y-12">
                 <div className="mb-12">
-                    <h2 className="text-4xl font-bold">Our regular Clients</h2>
+                    <h2 className="text-4xl font-bold">Our Clients</h2>
                     <p className="text-gray-500 mt-5">Explore the journey of our key projects & Designs.</p>
                 </div>
 

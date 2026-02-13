@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="animate-slideInDown">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Strategic Design <br /> Crafted to 
-              <span className="bg-gradient-to-r from-[#A27B10] to-[#A27B10]/40 bg-clip-text text-transparent"> Elevate Your Brand</span>
+              <span className="bg-gradient-to-r from-[#A27B10] to-[#A27B10]/80 bg-clip-text text-transparent"> Elevate Your Brand</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed font-medium">
