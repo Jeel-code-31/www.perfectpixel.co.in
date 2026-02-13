@@ -41,7 +41,7 @@ export default function Hero() {
           className="w-full h-full object-cover opacity-200"
         >
           {/* Use your uploaded stars/space video here */}
-          <source src="/background.mp4" type="video/mp4" />
+          <source src="https://qyusugtmckphvdt7.public.blob.vercel-storage.com/background.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
