@@ -5,13 +5,13 @@ export default function MediaGrid() {
         {
             title: "Milltreat Packaging Design",
             description: "Download PDF (2.4 MB)",
-            image: "/Chocolate.png", 
+            image: "/chocolate.png", 
             fileUrl: "/sample.pdf",
         },
         {
             title: "Paradigm Brochure Design",
             description: "Download PDF (5 MB)",
-            image: "/anaaa.jpg", 
+            image: "/Anaaa.jpg", 
             fileUrl: "/Paradigm.pdf",
         },
         {
