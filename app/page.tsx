@@ -5,13 +5,13 @@ import Services from '@/components/services';
 import Footer from '@/components/footer';
 import ScrollAnimator from '@/components/scroll-animator';
 import { ProjectCard } from '@/components/project-card';
-import Counter from '@/components/Counter';// or your specific set
-import Hero from '@/components/hero';
+import Counter from '@/components/Counter';
 import ProcessSection from '@/components/Process-Section';
 import { sanityFetch } from "@/sanity/lib/fetch"
 import MediaGrid from '@/components/pdf'
 import ReviewSection from '@/components/section';
 import BrandAnimation from '@/components/Client';
+import Hero from '@/components/hero';
 
 
 export default function Home() {
@@ -28,8 +28,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground dark">
       <Navbar />
       <ScrollAnimator>
-
-        <Hero />
+       <Hero />
         <BrandAnimation />
 
         {/* Stats Section */}

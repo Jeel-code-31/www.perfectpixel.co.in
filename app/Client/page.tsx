@@ -34,17 +34,17 @@ const PROJECTS = [
         id: 1,
         title: "Paradigm Managing Quality",
         category: "Food and Quality Management, Website Design",
-        year: " 2025",
+        year: " 2023",
         link: "https://paradigm.co.in/",
-        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80",
+        image: "/pp.png",
     },
     {
         id: 2,
         title: "Kailas Engineering Systems",
         category: "Post Designs for Corporate Office",
-        year: "2024",
+        year: "2022",
         link: "https://kailasengineering.com/",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80",
+        image: "/kailas.jpg",
     },
     {
         id: 3,
@@ -68,7 +68,7 @@ const PROJECTS = [
         category: "Brand Identity and Website Design",
         year: "2023",
         link: "https://vrindaaagro.com/",
-        image: "https://vrindaagro.com/wp-content/uploads/2021/09/cropped-Vrinda-Agro-Logo-1.png",
+        image: "Vrinda.png",
     },
 ]
 

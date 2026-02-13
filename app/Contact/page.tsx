@@ -109,7 +109,7 @@ export default function ContactPage() {
                 <Phone className="text-[#AC9148]" size={24} />
               </div>
               <h3 className="text-white font-bold text-lg mb-2">Call</h3>
-              <p className="text-gray-400 text-sm font-medium">+91 98765 43210</p>
+              <p className="text-gray-400 text-sm font-medium">+91 7972823811</p>
             </motion.div>
 
             {/* Card 3 */}

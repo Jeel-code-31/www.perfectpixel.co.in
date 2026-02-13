@@ -33,7 +33,7 @@ export default function Navbar({ settings, contactInfo }: NavbarProps) {
 
   // 1. Define missing variables for contact info
   const email = contactInfo?.email?.[0] || "design@perfectpixel.co.in"
-  const phones = contactInfo?.phones?.[0] || "+91 8788 803179"
+  const phones = contactInfo?.phones?.[0] || "+91 7972823811 "
   const location = contactInfo?.address?.split('\n')[0] || "Vadodara"
 
   const links = settings?.navLinks && settings.navLinks.length > 0
