@@ -182,4 +182,4 @@ function ServiceCard({ service, isExpanded, onToggle }: { service: ServiceItem, 
       </div>
     </div>
   )
-}
+}              

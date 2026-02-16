@@ -2,22 +2,18 @@
 
 import React, { useRef } from 'react';
 import { motion, useSpring, useTransform, useMotionValue } from 'framer-motion';
-import { de } from 'date-fns/locale';
 
 export default function Hero() {
   const containerRef = useRef(null);
   
-  // 1. Setup Mouse Tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // 2. Smooth "Spring" physics (makes it feel premium)
   const springConfig = { damping: 30, stiffness: 100 };
   const moveX = useSpring(useTransform(mouseX, [0, 2000], [20, -20]), springConfig);
   const moveY = useSpring(useTransform(mouseY, [0, 1000], [20, -20]), springConfig);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    // Get mouse position relative to window
     mouseX.set(e.clientX);
     mouseY.set(e.clientY);
   };
@@ -26,41 +22,31 @@ export default function Hero() {
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full overflow-hidden flex items-center bg-black"
+      className="relative min-h-screen w-full overflow-hidden flex items-center"
+      style={{ backgroundColor: "#191919" }}   // REAL light gray
     >
-      {/* --- INTERACTIVE BACKGROUND VIDEO --- */}
-      <motion.div 
-        style={{ x: moveX, y: moveY }}
-        className="absolute inset-0 z-0 pointer-events-none scale-110"
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover opacity-200"
-        >
-          {/* Use your uploaded stars/space video here */}
-          <source src="https://qyusugtmckphvdt7.public.blob.vercel-storage.com/background.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
-
       {/* --- HERO CONTENT --- */}
-      <div className="relative max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-10 mt-45">
+      <div className="relative max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-10">
         <div className="max-w-4xl">
-          <div className="animate-slideInDown">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Strategic Design <br /> Crafted to 
-              <span className="bg-gradient-to-r from-[#A27B10] to-[#A27B10]/80 bg-clip-text text-transparent"> Elevate Your Brand</span>
+          <div className="animate-slideInDown uppercase">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-6 flex flex-wrap items-baseline gap-x-3">
+              <span className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter">
+                Strategic Design
+              </span>
+              <span className="lowercase text-2xl md:text-3xl lg:text-4xl font-light">
+                to
+              </span> 
+              <span className="bg-gradient-to-r from-[#FFA700] to-[#FFA700]/90 font-semibold mt-5 bg-clip-text text-transparent">
+                Elevate Brand Visibility
+              </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white/60 max-w-2xl mb-10 leading-relaxed font-medium">
-              We create innovative digital experiences that transform ideas into reality. From concept to execution, we deliver excellence in every project.
+            <p className="text-lg md:text-xl text-white max-w-2xl mb-10 font-medium">
+              we deliver experience that transforms idea into reality.
             </p>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

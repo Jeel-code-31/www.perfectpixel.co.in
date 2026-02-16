@@ -57,16 +57,28 @@ export function WorksFilters({ categories }: WorksFiltersProps) {
             key={category._id}
             onClick={() => handleFilterChange(category.slug.current)}
             className={`
-                  relative px-4 py-2 border transition-all duration-300 uppercase text-[10px] tracking-[0.2em]
-                ${isActive
-                ? 'border-[#AC9148] text-[#AC9148] font-bold bg-[#AC9148]/5'
-                : 'border-gray-200 text-gray-400 hover:border-gray-400 hover:text-gray-600'
+    group relative px-6 py-3 transition-all duration-500 uppercase text-[10px] tracking-[0.3em]
+    ${isActive
+                ? 'text-[#AC9148] font-bold'
+                : 'text-white hover:text-[#AC9148]' // Changed from white/40 to solid white
               }
-                `}
+  `}
           >
             {category.title}
+
+            {/* THE GOLDEN LINE ANIMATION */}
+            <span
+              className={`
+      absolute bottom-0 left-1/2 -translate-x-1/2 h-[1px] bg-[#AC9148] transition-all duration-500 ease-out
+      ${isActive
+                  ? 'w-full opacity-100'
+                  : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
+                }
+    `}
+            />
           </button>
-          )}
+        )
+      }
       )}
     </div>
   )

@@ -63,15 +63,17 @@ export const projectBySlugQuery = defineQuery(`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
     title,
-    slug,
+    "slug": slug.current,
     heroImage,
-    description,
     excerpt,
+    overview,   // Ensure these are arrays in Sanity Studio
+    challenge,
+    solution,
     "category": category->title,
     gallery, 
-    // If your gallery has specific metadata or alt text, use: gallery[] { ..., asset-> }
     year,
-    location
+    location,
+    services    // Add this if you want the services to show in the header
   }
 `)
 

@@ -12,6 +12,7 @@ import MediaGrid from '@/components/pdf'
 import ReviewSection from '@/components/section';
 import BrandAnimation from '@/components/Client';
 import Hero from '@/components/hero';
+import Service from '@/components/Service'
 
 
 export default function Home() {
@@ -28,18 +29,13 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground dark">
       <Navbar />
       <ScrollAnimator>
-       <Hero />
         <BrandAnimation />
-
+        <Hero />
         {/* Stats Section */}
-        <section className="relative mt-20 px-4 sm:px-6 md:px-10 py-32 overflow-hidden text-white">
+        <section className="relative  px-4 sm:px-6 md:px-10 py-32 overflow-hidden text-white">
 
           <div className="absolute inset-0 z-0">
-            <img
-              src="./just.png" //
-              alt="Background"
-              className="w-full h-full object-cover"
-            />
+            <div className="absolute inset-0 bg-white" />
           </div>
 
           <div className="max-w-6xl mx-auto relative z-10">
@@ -52,16 +48,17 @@ export default function Home() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white transition-all duration-300 text-center backdrop-blur-md"
+                  className="p-8 rounded-2xl bg-black/10 border border-[#A27B10]/40 hover:border-[#A27B10] hover:bg-black/20 transition-all duration-300 text-center backdrop-blur-md"
+
                 >
                   <div className="mb-4">
-                    <i className={`fa-light ${stat.icon} text-5xl text-[#A27B10] group-hover:text-white group-hover:scale-110 transition-all duration-300`}></i>
+                    <i className={`fa-light ${stat.icon} text-5xl text-[#A27B10] group-hover:text-black group-hover:scale-110 transition-all duration-300`}></i>
                   </div>
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-10 mt-2">
+                  <div className="text-4xl md:text-5xl font-bold text-black mb-10 mt-2">
 
                     <Counter end={stat.value} />
                   </div>
-                  <p className="text-gray-300 font-medium tracking-wide uppercase text-sm">
+                  <p className="text-black/80 font-medium tracking-wide uppercase text-sm">
                     {stat.label}
                   </p>
                 </div>
@@ -71,8 +68,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <Services />
-        <ProcessSection />
+        <Service />
 
         <MediaGrid />
         <ReviewSection />

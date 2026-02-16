@@ -1,80 +1,93 @@
-import { FileText, Download } from "lucide-react"
+"use client"
 
-export default function MediaGrid() {
-    const downloads = [
-        {
-            title: "Milltreat Packaging Design",
-            description: "Download PDF (2.4 MB)",
-            image: "/chocolate.png", 
-            fileUrl: "/sample.pdf",
-        },
-        {
-            title: "Paradigm Brochure Design",
-            description: "Download PDF (5 MB)",
-            image: "/Anaaa.jpg", 
-            fileUrl: "/Paradigm.pdf",
-        },
-        {
-            title: "Kailas Engineering Brochure Design",
-            description: "Download PDF (1.8 MB)",
-            image: "/no.jpg",
-            fileUrl: "/Brochure.pdf",
-        }
-    ];
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
-    return (
-        <section className="px-6 md:px-10 py-12">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-12 mb-12 sm:mb-16">
-                <h2 className="oh-label text-sm sm:text-base">
-                    (Our Works)
-                </h2>
+const works = [
+  {
+    title: "BEVGRU MOCKUP",
+    // description: "Large scale architectural projection experience.",
+    image: "/click.png",
+  },
+  {
+    title: "BEVGRU MOCKUP 2",
+    // description: "Public art through immersive lighting.",
+    image: "/Click2.png",
+  },
+  {
+    title: "MOTA CHIPS MOCKUPS",
+    // description: "Interactive digital gallery experience.",
+    image: "/Click3.png",
+  },
+]
 
-                <a href="/projects" className="oh-label text-sm sm:text-base text-[#C2542D] opacity-80 hover:opacity-100 transition-opacity duration-300 link-underline min-h-[44px] flex items-center">
-                    (View All Works)
-                </a>
-            </div>
-            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                {downloads.map((item, index) => (
-                    <div
-                        key={index}
-                        className="group relative aspect-video overflow-hidden rounded-sm bg-black border border-white/10"
-                    >
-                        {/* Background Image */}
-                        <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-105"
-                        />
+export default function FutureWorkSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
 
-                        {/* Content Overlay */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 p-6">
-                            <FileText
-                                className="text-white/20 group-hover:text-[#c2542d] transition-colors duration-500 mb-2"
-                                size={48}
-                            />
-                            <h3 className="text-white font-semibold tracking-tighter text-xl text-center">
-                                {item.title}
-                            </h3>
-                            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mt-1">
-                                {item.description}
-                            </p>
+  useEffect(() => {
+    const onScroll = () => {
+      if (!containerRef.current) return
 
-                            {/* Revealable Button */}
-                            <a
-                                href={item.fileUrl}
-                                download
-                                className="mt-6 flex items-center gap-2 bg-white text-black px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-500 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[#c2542d] hover:text-white"
-                            >
-                                <Download size={14} />
-                                Download Now
-                            </a>
-                        </div>
+      const rect = containerRef.current.getBoundingClientRect()
+      const sectionHeight = rect.height
+      const scrolled = Math.min(
+        Math.max(-rect.top, 0),
+        sectionHeight - window.innerHeight
+      )
 
-                        {/* Dark Gradient Bottom */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-80" />
-                    </div>
-                ))}
-            </div>
-        </section>
-    )
+      const progress = scrolled / (sectionHeight - window.innerHeight)
+      const index = Math.floor(progress * works.length)
+
+      setActiveIndex(Math.min(index, works.length - 1))
+    }
+
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  return (
+    <section ref={containerRef} className="relative h-[300vh] bg-white">
+      <div className="sticky top-0 h-screen flex items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 px-10">
+
+          {/* TEXT */}
+          <div className="flex flex-col h-full justify-center">
+            <p className="uppercase tracking-[0.3em] font-bold text-black text-xl">
+              Future Work
+            </p>
+
+            <h2 className="text-5xl md:text-6xl font-light mt-4 text-black transition-all duration-500">
+              {works[activeIndex].title}
+            </h2>
+
+            <p className="text-gray-500 mt-6 max-w-md transition-all duration-500">
+              {works[activeIndex].description}
+            </p>
+
+            {/* BUTTON AT BOTTOM OF TEXT */}
+            <a
+              href="/projects"
+              className="mt-10 inline-block text-xl text-black hover:text-[#B8963F] transition-colors uppercase tracking-widest"
+            >
+              View All Works →
+            </a>
+          </div>
+
+          {/* IMAGE */}
+          <div className="relative h-[500px] w-full overflow-hidden rounded-2xl">
+            <Image
+              key={works[activeIndex].image}
+              src={works[activeIndex].image}
+              alt={works[activeIndex].title}
+              fill
+              className="object-cover transition-all duration-700"
+              sizes="50vw"
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
 }

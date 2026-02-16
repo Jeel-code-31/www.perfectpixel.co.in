@@ -5,6 +5,8 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import ScrollAnimator from '@/components/scroll-animator';
 import ExpertiseSection from '@/components/experties';
+import process from '@/components/Process-Section';
+import ProcessSection from '@/components/Process-Section';
 
 export default function AboutPage() {
 
@@ -139,7 +141,7 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
-
+                   <ProcessSection />
                 {/* ========== CORE VALUES SECTION ========== */}
                 {/* Showcases company values with icon cards and descriptions */}
                 <section className="relative px-4 sm:px-6 md:px-10 py-20 md:py-28 overflow-hidden">
