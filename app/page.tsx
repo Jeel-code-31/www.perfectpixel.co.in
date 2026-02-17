@@ -4,9 +4,7 @@ import Navbar from '@/components/navbar';
 import Services from '@/components/services';
 import Footer from '@/components/footer';
 import ScrollAnimator from '@/components/scroll-animator';
-import { ProjectCard } from '@/components/project-card';
 import Counter from '@/components/Counter';
-import ProcessSection from '@/components/Process-Section';
 import { sanityFetch } from "@/sanity/lib/fetch"
 import MediaGrid from '@/components/pdf'
 import ReviewSection from '@/components/section';

@@ -5,17 +5,17 @@ import Image from "next/image"
 
 const works = [
   {
-    title: "BEVGRU MOCKUP",
+    title: "BEVGRU",
     // description: "Large scale architectural projection experience.",
     image: "/click.png",
   },
   {
-    title: "BEVGRU MOCKUP 2",
+    title: "BEVGRU",
     // description: "Public art through immersive lighting.",
     image: "/Click2.png",
   },
   {
-    title: "MOTA CHIPS MOCKUPS",
+    title: "MOTA CHIPS",
     // description: "Interactive digital gallery experience.",
     image: "/Click3.png",
   },
@@ -53,11 +53,11 @@ export default function FutureWorkSection() {
 
           {/* TEXT */}
           <div className="flex flex-col h-full justify-center">
-            <p className="uppercase tracking-[0.3em] font-bold text-black text-xl">
-              Future Work
+            <p className="uppercase tracking-[0.3em] text-black text-6xl mb-10">
+              Our Work
             </p>
 
-            <h2 className="text-5xl md:text-6xl font-light mt-4 text-black transition-all duration-500">
+            <h2 className="text-3xl md:text-4xl font-light mt-4 text-black transition-all duration-500">
               {works[activeIndex].title}
             </h2>
 
