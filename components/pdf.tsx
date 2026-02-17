@@ -74,7 +74,9 @@ export default function FutureWorkSection() {
             </a>
           </div>
 
-          {/* IMAGE */}
+          {/*
+          
+          IMAGE */}
           <div className="relative h-[500px] w-full overflow-hidden rounded-2xl">
             <Image
               key={works[activeIndex].image}
