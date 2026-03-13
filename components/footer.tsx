@@ -2,7 +2,6 @@
 
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 
-// Types for Sanity/Props
 interface FooterProps {
   settings?: {
     siteTitle?: string;

@@ -86,18 +86,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* Hero Visual Section */}
       {heroUrl && (
-        <section className="px-6 md:px-10">
-          <div className="max-w-[1400px] mx-auto overflow-hidden rounded-sm">
-            <Image
-              src={heroUrl}
-              alt={project.title}
-              width={1600}
-              height={100}
-              className="w-full h-120 object-cover"
-              priority
-            />
-          </div>
-        </section>
+       <section className="px-6 md:px-10">
+  <div className="max-w-[1400px] mx-auto overflow-hidden rounded-sm">
+    <Image
+      src={heroUrl}
+      alt={project.title}
+      width={1600}
+      height={900}
+      className="w-full h-auto object-cover"
+      priority
+    />
+  </div>
+</section>
       )}
 
       {/* Content Section: Overview, Challenge, Solution */}
