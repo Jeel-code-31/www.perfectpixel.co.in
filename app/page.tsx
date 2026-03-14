@@ -29,6 +29,7 @@ export default function Home() {
       <ScrollAnimator>
         <BrandAnimation />
         <Hero />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFA700]/50 to-transparent" />
         {/* Stats Section */}
         <section className="relative  px-4 sm:px-6 md:px-10 py-32 overflow-hidden text-white">
 

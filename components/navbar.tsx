@@ -99,7 +99,7 @@ export default function Navbar({ settings, contactInfo }: NavbarProps) {
           <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
             <div className={`transition-all duration-500 flex items-center px-2 py-1.5 rounded-full border ${isScrolled
               ? "opacity-0 pointer-events-none scale-90"
-              : "bg-black/30 backdrop-blur-md border-white/40 opacity-100 scale-100"
+              : "bg-black/100 backdrop-blur-md border-white/40 opacity-100 scale-100"
               }`}>
               {links.map((link) => (
                 <Link
