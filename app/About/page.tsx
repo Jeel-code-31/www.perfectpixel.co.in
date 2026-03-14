@@ -212,7 +212,7 @@ export default function AboutPage() {
                                 { name: 'Jahan Patel', role: 'Digital Marketing Specialist', contact: 'jahandms60@gmail.com', },
                                 { name: 'Harsh Makwana', role: 'Content Writer', contact: 'harshmakwana34201@gmail.com',Image: '/Team/Harsh.jpeg' },
                                 {name:'Abhay Hippakra',role:'Graphic Designer', contact:'abhay357015@gmai.com',Image:'Team'},
-                                 { name: 'Jeel Darji', role: 'Website Designer & Developer', contact: 'darjijeel31@gmail.com',Image: '/Team/jeel.jpeg' },
+                                { name: 'Jeel Darji', role: 'Website Designer & Developer', contact: 'darjijeel31@gmail.com',Image: '/Team/jeel.jpeg' },
                                 
                             ].map((member, index) => (
                                 <div

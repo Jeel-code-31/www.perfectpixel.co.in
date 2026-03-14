@@ -99,7 +99,7 @@ export default function Footer({ settings, contactInfo }: FooterProps) {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-[#D9D4CC]/40 text-xs tracking-wide text-center md:text-left">
-            @2025 PERFECT-PIXEL DESIGNS THAT WORK. <br className="md:hidden" /> ALL RIGHTS RESERVED.
+            @2026 PERFECT-PIXEL DESIGNS THAT WORK. <br className="md:hidden" /> ALL RIGHTS RESERVED.
           </p>
 
           {/* Social Links */}
