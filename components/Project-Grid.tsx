@@ -2,46 +2,46 @@
 
 import { useMemo, useState } from "react"
 import { motion } from "framer-motion"
-import { ProjectCard, type ProjectCardProps } from "./project-card"
+import { ProjectCard } from "./project-card"
 
-interface ProjectsGrid {
-  projects: ProjectCardProps[]
+interface ProjectsGridProps {
+  projects: any[]
 }
 
-export function ProjectsGrid({ projects }: ProjectsGrid) {
-  const [visible, setVisible] = useState(8)
+export function ProjectsGrid({ projects }: ProjectsGridProps) {
+  const [visible, setVisible] = useState(9)
   const items = useMemo(() => projects.slice(0, visible), [projects, visible])
   const canLoadMore = visible < projects.length
 
   return (
-    <div className="space-y-10">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-5 gap-y-8">
+    <div className="w-full mb-32"> 
+      {/* gap-x-1: Keeps horizontal lines thin
+        gap-y-12: Creates significant space between the rows (bottom side of projects)
+      */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-1 gap-y-12">
         {items.map((project, index) => (
           <motion.div
             key={project.href}
-            className="pb-28"
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.08, duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+            transition={{ delay: index * 0.05, duration: 0.5 }}
           >
-            <ProjectCard {...project} revealDelay={index * 80} />
+            <ProjectCard {...project} revealDelay={index} />
           </motion.div>
         ))}
       </div>
 
       {canLoadMore && (
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-20">
           <button
             onClick={() => setVisible((prev) => prev + 6)}
-            className="mt-4 inline-flex items-center gap-2 px-5 py-3 border border-white/20  bg-black/10 hover:bg-black/20 transition-colors duration-300"
+            className="group flex items-center gap-3 px-8 py-3 border border-black/10 bg-white hover:bg-black hover:text-white transition-all duration-300 rounded-full"
           >
-            <span className="tracking-[0.16em] color-white">Load More</span>
-            <span className="h-2 w-2 rounded-full bg-[#FAF7F2]" />
-            </button>
+            <span className="tracking-[0.2em] text-[10px] uppercase font-bold text-black group-hover:text-white">Load More</span>
+            <div className="h-1.5 w-1.5 rounded-full bg-black group-hover:bg-white transition-colors" />
+          </button>
         </div>
       )}
     </div>
   )
 }
-
-

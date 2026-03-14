@@ -14,13 +14,15 @@ export function ProjectCard({
   description,
   revealDelay = 0,
 }: any) {
-  // --- 1. ALL HOOKS MUST BE AT THE TOP ---
+  // --- 1. ALL HOOKS ---
   const ref = useRef<HTMLAnchorElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
+  
+  // Adjusted tilt values for a subtle 3D feel
   const rotateX = useTransform(mouseY, [-0.5, 0.5], [10, -10])
   const rotateY = useTransform(mouseX, [-0.5, 0.5], [-10, 10])
 
@@ -39,8 +41,7 @@ export function ProjectCard({
     return () => observer.disconnect()
   }, [])
 
-  // --- 2. THE SAFETY CHECK (MUST BE AFTER HOOKS) ---
-  // If the link is missing from Sanity, we return null safely here.
+  // --- 2. SAFETY CHECK ---
   if (!href || typeof href !== "string") return null
 
   // --- 3. LOGIC ---
@@ -50,7 +51,6 @@ export function ProjectCard({
     small: "aspect-square",
   }
 
-  // Prevents Hydration Mismatch: 'canHover' is only true on the client
   const canHover = mounted && typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches
 
   return (
@@ -70,31 +70,29 @@ export function ProjectCard({
       className={`group relative block w-full ${sizeClasses[size as keyof typeof sizeClasses] || "aspect-square"} overflow-visible`}
     >
       <motion.div
-        style={canHover ? { rotateX, rotateY } : { rotateX: 0, rotateY: 0 }}
-        whileHover={canHover ? { scale: 1.05 } : undefined}
-        transition={{ type: "spring", stiffness: 50, damping: 25 }}
-        className="relative h-full w-full rounded-xl bg-[#141210] overflow-hidden"
+        style={canHover ? { rotateX, rotateY, perspective: 1000 } : { rotateX: 0, rotateY: 0 }}
+        whileHover={canHover ? { scale: 1.02 } : undefined}
+        transition={{ type: "spring", stiffness: 150, damping: 20 }}
+        className="relative h-full w-full overflow-hidden"
       >
-        <div
-          className="absolute inset-0 transition-all duration-1000"
-          style={{
-            clipPath: isVisible ? "inset(0% 0% 0% 0%)" : "inset(100% 0% 0% 0%)",
-            transitionDelay: `${revealDelay}ms`,
-          }}
-        >
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-        </div>
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          priority={revealDelay === 0}
+        />
+        
       </motion.div>
 
-      <div className="mt-6">
-        <span className="text-2xl font-bold text-[#B8963F] block mb-2">({number})</span>
-        {description && <p className="text-white text-sm opacity-80">{description}</p>}
-      </div>
+      {/* Uncomment if you want the labels visible */}
+      {/* <div className="mt-4">
+        <span className="text-xl font-bold text-[#B8963F] block">({number})</span>
+        <h3 className="text-white font-medium">{title}</h3>
+        {description && <p className="text-white/60 text-sm mt-1">{description}</p>}
+      </div> 
+      */}
     </Link>
   )
 }

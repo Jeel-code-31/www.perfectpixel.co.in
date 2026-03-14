@@ -25,7 +25,6 @@ export default async function WorksPage({ searchParams }: Props) {
   const params = await searchParams;
   const categorySlug = params.category;
 
-  // Fetch categories and projects in parallel
   const [categories, projects] = await Promise.all([
     sanityFetch<Category[]>({
       query: categoriesQuery,
@@ -47,7 +46,6 @@ export default async function WorksPage({ searchParams }: Props) {
         }).catch(() => []),
   ]);
 
-  // Transform data for the ProjectsGrid component
   const mapped = (projects || []).map((proj, idx) => ({
     title: proj.title || "Untitled Project",
     number: String(idx + 1).padStart(2, "0"),
@@ -60,37 +58,42 @@ export default async function WorksPage({ searchParams }: Props) {
   }));
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden bg-white !text-black">
       <Navbar />
       
-      {/* Background Decorative Grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.4]"
+        className="pointer-events-none absolute inset-0 opacity-[0.05] bg-[url('/grid.svg')] bg-repeat"
       />
    
-      <section className="relative px-4 sm:px-6 md:px-10 mt-24 sm:pt-32 overflow-hidden">
+      <section className="relative px-4 sm:px-6 md:px-10 mt-10 sm:pt-32 overflow-hidden">
         <div className="max-w-[1400px] mx-auto relative z-10">
-          <h1 className="oh-headline text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-10">
+          {/* Using !text-black to override any global oh-headline styles */}
+          <h1 className="oh-headline text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-10 !text-black font-bold tracking-tight">
             Our Excellent Projects
           </h1>
-          <p className="oh-body text-sm sm:text-base md:text-lg max-w-[650px] mb-8 sm:mb-10 leading-relaxed">
+          
+          <p className="oh-body text-sm sm:text-base md:text-lg max-w-[650px] mb-8 sm:mb-10 leading-relaxed !text-black">
             A curated selection of our monumental installations and public artworks. Each commission blends cultural
             research, material mastery, and architectural integration.
           </p>
           
-          <WorksFilters categories={categories} />
+          <div className="border-b border-neutral-200 pb-8">
+             <WorksFilters categories={categories} />
+          </div>
         </div>
       </section>
 
-      <section className="relative px-4 sm:px-6 md:px-10 pt-5 pb-10 sm:pb-28 md:pb-32 overflow-hidden">
+      <section className="relative px-4 sm:px-6 md:px-10 pt-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto relative z-10">
           {mapped.length === 0 ? (
-            <div className="text-center py-16 sm:py-20 text-[#6B6560]">
+            <div className="text-center py-16 sm:py-20 !text-neutral-500">
               <p className="oh-body text-base sm:text-lg">No projects found in this category.</p>
             </div>
           ) : (
-            <ProjectsGrid projects={mapped} />
+            <div className="!text-black">
+              <ProjectsGrid projects={mapped} />
+            </div>
           )}
         </div>
       </section>

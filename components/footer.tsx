@@ -29,14 +29,14 @@ export default function Footer({ settings, contactInfo }: FooterProps) {
   const addresses = [
     {
       title: "Head Office",
-      lines: ["National Plaza", "S5 2nd Floor, Alkapuri", "Vadodara, Gujarat"],
+      lines: ["S5 ,National Plaza", " Alkapuri", "Vadodara, Gujarat"],
     },
   ];
 
   return (
     <footer
       id="contact"
-      className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#1A1815] border-t border-white/10 relative overflow-hidden"
+      className="py-12 pt-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#1A1815] border-t border-white/10 relative overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col lg:flex-row justify-between gap-12 mb-16">
@@ -60,7 +60,7 @@ export default function Footer({ settings, contactInfo }: FooterProps) {
             {addresses.map((office, idx) => (
               <div key={idx} className="space-y-4">
                 <span className="text-xs uppercase tracking-[0.2em] text-[#B8963F] font-bold mt-2 block">
-                  ({office.title})
+                  {office.title}
                 </span>
                 <div className="text-[#FAF7F2]/70 text-sm leading-6 space-y-1">
                   {office.lines.map((line, i) => (
@@ -73,7 +73,7 @@ export default function Footer({ settings, contactInfo }: FooterProps) {
             {/* Direct Contact */}
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-[0.2em] text-[#B8963F] font-bold">
-                (Contact Us)
+                Contact Us
               </span>
               <div className="space-y-3">
                 <a
