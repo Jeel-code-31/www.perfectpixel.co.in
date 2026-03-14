@@ -20,7 +20,6 @@ const socialLinks = [
 ];
 
 export default function Footer({ settings, contactInfo }: FooterProps) {
-  // Constants with Fallbacks
   const siteTitle = settings?.siteTitle || "Perfect Pixel";
   const contactSummary = settings?.contactSummary || "Reimagining spaces as lasting cultural landmarks through monumental art and sculptural excellence.";
   const email = contactInfo?.email?.[0] || "design@perfectpixel.co.in";
