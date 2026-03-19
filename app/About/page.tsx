@@ -35,12 +35,18 @@ export default function AboutPage() {
     ];
 
     const milestones = [
-        { year: '2021', achievement: 'Founded with a vision to transform digital experiences' },
-        { year: '2022', achievement: '50+ successful projects delivered to diverse clients' },
-        { year: '2023', achievement: 'Expanded team to 50+ talented professionals' },
-        { year: '2024', achievement: 'Recognized as top design agency in the region' },
-        { year: '2025', achievement: '150+ projects completed with 99% client satisfaction' },
-        { year:'2026', achievement: 'Launched new service offerings in motion graphics and 3D visualization' },
+        { year: '2015', achievement: 'The Beginning: Founded with a vision to redefine visual storytelling through innovative graphic design.' },
+        { year: '2016', achievement: 'Building Trust: Successfully delivered 50+ branding and print media projects for local startups.' },
+        { year: '2017', achievement: 'Digital Pivot: Expanded the team to 20+ specialists, integrating UI/UX design into our core services.' },
+        { year: '2018', achievement: 'Award Winning: Recognized as the "Top Emerging Design Agency" for excellence in user-centric interfaces.' },
+        { year: '2019', achievement: 'Scaling Horizons: Completed 150+ diverse projects with a 99% client satisfaction rate across 5 countries.' },
+        { year: '2020', achievement: 'Visual Innovation: Launched high-end Motion Graphics and 3D Visualization departments.' },
+        { year: '2021', achievement: 'Content Integration: Established a dedicated Creative Content Writing wing to provide 360-degree brand solutions.' },
+        { year: '2022', achievement: 'Enterprise Partnerships: Partnered with Fortune 500 companies to lead large-scale digital transformation projects.' },
+        { year: '2023', achievement: 'Global Talent: Team grew to 50+ professionals, working remotely across different time zones to serve global markets.' },
+        { year: '2024', achievement: 'Industry Leaders: Awarded "Best UI/UX Agency" for our work in complex SaaS and FinTech ecosystems.' },
+        { year: '2025', achievement: 'Impact & Reach: Hit a milestone of 500+ successful project deliveries with a focus on immersive brand experiences.' },
+        { year: '2026', achievement: 'Future-Ready: Pioneering AI-driven design workflows and interactive spatial computing visuals.' },
     ];
     return (
         <main className="min-h-screen bg-background text-foreground dark">
@@ -68,7 +74,7 @@ export default function AboutPage() {
                         <div className="max-w-4xl animate-slideInDown">
                             {/* Decorative Label */}
                             <span className="text-[#AC9148] text-xs uppercase tracking-[0.4em] font-bold mb-4 block">
-                                EST In. 2021
+                                EST In. 2015
                             </span>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-balance leading-[1.1] mb-8 text-[#FAF7F2]">
@@ -80,7 +86,7 @@ export default function AboutPage() {
 
                             <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed font-light">
                                 We are a creative collective dedicated to transforming ideas into
-                                stunning digital experiences. With over <span className="text-white font-medium">6 years</span> of expertise,
+                                stunning digital experiences. With over <span className="text-white font-medium">11 years</span> of expertise,
                                 we&apos;ve helped over & <span className="text-white font-medium">40+ Clients</span> elevate their presence.
                             </p>
                         </div>
@@ -118,10 +124,10 @@ export default function AboutPage() {
                             {/* Story visual element - stats showcase */}
                             <div className="grid grid-cols-2 gap-6 animate-fadeIn" style={{ animationDelay: '0.75s' }}>
                                 {[
-                                    { number: '150+', label: 'Projects' },
+                                    { number: '500+', label: 'Projects' },
                                     { number: '99%', label: 'Satisfaction' },
-                                    { number: '20+', label: 'Team' },
-                                    { number: '4+', label: 'Years' },
+                                    { number: '5+', label: 'Team' },
+                                    { number: '10+', label: 'Years Of Experience' },
                                 ].map((stat, index) => (
                                     <div
                                         key={index}
@@ -141,7 +147,7 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
-                   <ProcessSection />
+                <ProcessSection />
                 {/* ========== CORE VALUES SECTION ========== */}
                 {/* Showcases company values with icon cards and descriptions */}
                 <section className="relative px-4 sm:px-6 md:px-10 py-20 md:py-28 overflow-hidden">
@@ -210,10 +216,10 @@ export default function AboutPage() {
                             {[
                                 { name: 'Prawin Mw', role: 'CEO & Founder', contact: 'pravin@perfectpixel.co.in', Image: '/Team/CEO.png' },
                                 { name: 'Jahan Patel', role: 'Digital Marketing Specialist', contact: 'jahandms60@gmail.com', },
-                                { name: 'Harsh Makwana', role: 'Content Writer', contact: 'harshmakwana34201@gmail.com',Image: '/Team/Harsh.jpeg' },
-                                {name:'Abhay Hippakra',role:'Graphic Designer', contact:'abhay357015@gmai.com',Image:'Team'},
-                                { name: 'Jeel Darji', role: 'Website Designer & Developer', contact: 'darjijeel31@gmail.com',Image: '/Team/jeel.jpeg' },
-                                
+                                { name: 'Harsh Makwana', role: 'Content Writer', contact: 'harshmakwana34201@gmail.com', Image: '/Team/Harsh.jpeg' },
+                                { name: 'Abhay Hippakra', role: 'Graphic Designer', contact: 'abhay357015@gmail.com', Image: '/Team/Abhay.jpeg' },
+                                { name: 'Jeel Darji', role: 'Website Designer & Developer', contact: 'darjijeel31@gmail.com', Image: '/Team/Jeel.png' },
+
                             ].map((member, index) => (
                                 <div
                                     key={index}
@@ -222,102 +228,102 @@ export default function AboutPage() {
                                         animationDelay: `${index * 100}ms`,
                                     }}
                                 >
-                                    <div className="relative rounded-2xl overflow-hidden bg-card border border-muted group-hover:border-white transition-all duration-300">
-                                        {/* Placeholder for team member image */}
-                                        <div className="w-full h-95 flex items-center justify-center group-hover:from-[#AC9148]/30 group-hover:to-accent/10 transition-all duration-300">
-                                            <img src={member.Image} className="w-full h-full object-cover text-white/50 group-hover:text-[#AC9148] transition-colors duration-300 group-hover:scale-110" />
+                                    <div className="w-full aspect-[3/4] overflow-hidden rounded-t-xl">
+                                        <img
+                                            src={member.Image}
+                                            className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110"
+                                        />
                                         </div>
-                                        {/* Team member info */}
-                                        <div className="p-6">
-                                            <h3 className="text-lg font-bold mt-1 transition-colors duration-300 mt-5">
-                                                {member.name}
-                                            </h3>
+                                    {/* Team member info */}
+                                    <div className="p-6">
+                                        <h3 className="text-lg font-bold mt-1 transition-colors duration-300 mt-5">
+                                            {member.name}
+                                        </h3>
 
-                                            <p className="text-foreground/60 group-hover:text-[#AC9148] text-sm mb-4 mt-4">{member.role}</p>
-                                            <div className="flex items-center gap-3 my-4 mt-6">
-                                                <span className="text-[10px] uppercase tracking-widest text-foreground/40 font-bold">Contact Info</span>
-                                                <div className="h-[1px] flex-1 bg-[#AC9148]/20 group-hover:bg-[#AC9148]/50 transition-colors duration-300" />
-                                            </div>
-                                             <a href={`mailto:${member.contact}`}
-                                                className='text-foreground/60 group-hover:text-[#AC9148] text-sm mb-2 mt-1'>{member.contact}</a>
+                                        <p className="text-foreground/60 group-hover:text-[#AC9148] text-sm mb-4 mt-4">{member.role}</p>
+                                        <div className="flex items-center gap-3 my-4 mt-6">
+                                            <span className="text-[10px] uppercase tracking-widest text-foreground/40 font-bold">Contact Info</span>
+                                            <div className="h-[1px] flex-1 bg-[#AC9148]/20 group-hover:bg-[#AC9148]/50 transition-colors duration-300" />
                                         </div>
+                                        <a href={`mailto:${member.contact}`}
+                                            className='text-foreground/60 group-hover:text-[#AC9148] text-sm mb-2 mt-1'>{member.contact}</a>
                                     </div>
                                 </div>
                             ))}
-                        </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                {/* ========== MILESTONE SECTION ========== */}
-                {/* Company timeline showcasing growth and achievements */}
-                <section className="relative px-4 sm:px-6 md:px-10 py-20 md:py-28 overflow-hidden">
-                    <div className="absolute inset-0 opacity-10">
-                        <div className="absolute -left-20 top-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-                    </div>
+            {/* ========== MILESTONE SECTION ========== */}
+            {/* Company timeline showcasing growth and achievements */}
+            <section className="relative px-4 sm:px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute -left-20 top-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+                </div>
 
-                    <div className="max-w-4xl mx-auto relative z-10">
-                        {/* Section heading */}
-                        <div className="text-center mb-16 md:mb-20 animate-slideInUp">
-                            <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Journey</h2>
-                            <p className="text-lg text-foreground/70">
-                                Key milestones that shaped our growth and success
-                            </p>
-                        </div>
-
-                        {/* Timeline visualization */}
-                        <div className="space-y-8">
-                            {milestones.map((milestone, index) => (
-                                <div
-                                    key={index}
-                                    className="animate-slideInUp"
-                                    style={{
-                                        animationDelay: `${index * 100}ms`,
-                                    }}
-                                >
-                                    <div className="flex gap-6 items-start">
-                                        {/* Timeline dot and line */}
-                                        <div className="flex flex-col items-center">
-                                            <div className="w-4 h-4 rounded-full bg-[#AC9148] ring-4 ring-[#AC9148]/20 group-hover:ring-[#AC9148]/50 transition-all duration-300" />
-                                            {index !== milestones.length - 1 && (
-                                                <div className="w-1 h-20 bg-gradient-to-b from-[#AC9148]/50 to-transparent mt-2" />
-                                            )}
-                                        </div>
-
-                                        {/* Milestone content card */}
-                                        <div className="flex-1 p-6 rounded-lg border border-muted hover:border-[#AC9148] transition-all duration-300 group cursor-pointer">
-                                            <div className="text-2xl font-bold text-white mb-2">{milestone.year}</div>
-                                            <p className="text-foreground/70 group-hover:text-foreground transition-colors duration-300">
-                                                {milestone.achievement}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <ExpertiseSection />
-
-
-                {/* ========== CTA SECTION ========== */}
-                {/* Final call-to-action encouraging collaboration */}
-                <section className="relative px-4 sm:px-6 md:px-10 py-20 md:py-28 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent/10 blur-3xl opacity-50" />
-
-                    <div className="max-w-4xl mx-auto text-center relative z-10 animate-slideInUp">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-balance">Ready to Create Something Amazing?</h2>
-                        <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8 leading-relaxed">
-                            Let's collaborate and bring your vision to life with our expertise and passion for digital excellence.
+                <div className="max-w-4xl mx-auto relative z-10">
+                    {/* Section heading */}
+                    <div className="text-center mb-16 md:mb-20 animate-slideInUp">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Journey</h2>
+                        <p className="text-lg text-foreground/70">
+                            Key milestones that shaped our growth and success
                         </p>
-                        <a href='/Contact' className="px-8 py-4 bg-[#AC9148] text-primary rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 mt-10">
-                            Start Your Project
-                        </a>
                     </div>
-                </section>
-                <Footer />
-            </ScrollAnimator>
-        </main>
+
+                    {/* Timeline visualization */}
+                    <div className="space-y-8">
+                        {milestones.map((milestone, index) => (
+                            <div
+                                key={index}
+                                className="animate-slideInUp"
+                                style={{
+                                    animationDelay: `${index * 100}ms`,
+                                }}
+                            >
+                                <div className="flex gap-6 items-start">
+                                    {/* Timeline dot and line */}
+                                    <div className="flex flex-col items-center">
+                                        <div className="w-4 h-4 rounded-full bg-[#AC9148] ring-4 ring-[#AC9148]/20 group-hover:ring-[#AC9148]/50 transition-all duration-300" />
+                                        {index !== milestones.length - 1 && (
+                                            <div className="w-1 h-20 bg-gradient-to-b from-[#AC9148]/50 to-transparent mt-2" />
+                                        )}
+                                    </div>
+
+                                    {/* Milestone content card */}
+                                    <div className="flex-1 p-6 rounded-lg border border-muted hover:border-[#AC9148] transition-all duration-300 group cursor-pointer">
+                                        <div className="text-2xl font-bold text-white mb-2">{milestone.year}</div>
+                                        <p className="text-foreground/70 group-hover:text-foreground transition-colors duration-300">
+                                            {milestone.achievement}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <ExpertiseSection />
+
+
+            {/* ========== CTA SECTION ========== */}
+            {/* Final call-to-action encouraging collaboration */}
+            <section className="relative px-4 sm:px-6 md:px-10 py-20 md:py-28 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent/10 blur-3xl opacity-50" />
+
+                <div className="max-w-4xl mx-auto text-center relative z-10 animate-slideInUp">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-balance">Ready to Create Something Amazing?</h2>
+                    <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8 leading-relaxed">
+                        Let's collaborate and bring your vision to life with our expertise and passion for digital excellence.
+                    </p>
+                    <a href='/Contact' className="px-8 py-4 bg-[#AC9148] text-primary rounded-lg font-semibold transition-all duration-300 hover:-translate-y-1 mt-10">
+                        Start Your Project
+                    </a>
+                </div>
+            </section>
+            <Footer />
+        </ScrollAnimator>
+        </main >
     );
 }
 
