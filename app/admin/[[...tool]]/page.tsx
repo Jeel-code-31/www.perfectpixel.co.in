@@ -24,8 +24,6 @@ export default function StudioPage() {
     setMounted(true)
   }, [])
 
-  // 2. We return the loading state until mounted to ensure 
-  // the 'StudioWrapper' div also doesn't cause a mismatch.
   if (!mounted) {
     return <div style={{ height: '100vh', backgroundColor: '#101112' }} />
   }

@@ -1,6 +1,7 @@
 'use client';
 
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+// 1. Added 'Map' to the imports from lucide-react
+import { Mail, Linkedin, Map } from 'lucide-react'; 
 
 interface FooterProps {
   settings?: {
@@ -15,8 +16,21 @@ interface FooterProps {
 }
 
 const socialLinks = [
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/perfectpixel-design-that-works', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:design@perfectpixel.co.in', label: 'Email' },
+  { 
+    icon: Linkedin, 
+    href: 'https://www.linkedin.com/company/perfectpixel-design-that-works', 
+    label: 'LinkedIn' 
+  },
+  { 
+    icon: Mail, 
+    href: 'mailto:design@perfectpixel.co.in', 
+    label: 'Email' 
+  },
+  { 
+    icon: Map, 
+    href: 'https://www.google.com/maps/place/Perfect+Pixel,+Design+That+Works/@22.308663,73.170944,2750m/data=!3m1!1e3!4m6!3m5!1s0x395fcf49f10735fb:0x436419c7762b4074!8m2!3d22.310536!4d73.1722997!16s%2Fg%2F11clwkhd5g?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D', // Replace with your real link
+    label: 'Google Map' 
+  },
 ];
 
 export default function Footer({ settings, contactInfo }: FooterProps) {
@@ -28,7 +42,7 @@ export default function Footer({ settings, contactInfo }: FooterProps) {
   const addresses = [
     {
       title: "Head Office",
-      lines: ["S5 ,National Plaza", " Alkapuri", "Vadodara, Gujarat"],
+      lines: ["S5, National Plaza", "Alkapuri", "Vadodara, Gujarat"],
     },
   ];
 
@@ -107,6 +121,8 @@ export default function Footer({ settings, contactInfo }: FooterProps) {
               <a
                 key={index}
                 href={social.href}
+                target="_blank" // Added for external links
+                rel="noopener noreferrer" // Added for security
                 className="group p-3 rounded-full border border-white/10 hover:border-[#B8963F] bg-white/5 hover:bg-[#B8963F]/10 transition-all duration-500"
                 aria-label={social.label}
               >
