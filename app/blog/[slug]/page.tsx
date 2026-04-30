@@ -51,7 +51,15 @@ const portableTextComponents: PortableTextComponents = {
 }
 
 const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
-  _id, title, slug, mainImage, gallery,
+  _id, title, slug, 
+  mainImage {
+    ...,
+    asset-> {
+      ...,
+      metadata
+    }
+  },
+  gallery,
   author->{ _id, name, image },
   publishedAt, excerpt, body,
   categories[]->{ _id, title }
@@ -71,7 +79,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   if (!post) return notFound()
 
-  const imageUrl = post.mainImage ? urlFor(post.mainImage).width(1200).height(600).url() : null
+  const dimensions = post.mainImage?.asset?.metadata?.dimensions
+  const aspectRatio = dimensions ? dimensions.width / dimensions.height : 16 / 9
+  const imageUrl = post.mainImage ? urlFor(post.mainImage).url() : null
 
   return (
     <main className="min-h-screen text-[#1A1815]">
@@ -94,8 +104,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </section>
 
       {imageUrl && (
-        <div className="max-w-[900px] mx-auto px-5 mb-16">
-          <Image src={imageUrl} alt={post.title} width={1200} height={600} className="rounded-lg w-full h-auto" priority />
+        <div className="max-w-[1100px] mx-auto px-5 mb-16">
+          <div 
+            className="relative w-full overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+            style={{ aspectRatio: `${aspectRatio}` }}
+          >
+            <Image 
+              src={imageUrl} 
+              alt={post.title} 
+              fill 
+              className="object-cover" 
+              priority 
+              sizes="(max-width: 1100px) 100vw, 1100px"
+            />
+          </div>
         </div>
       )}
 
